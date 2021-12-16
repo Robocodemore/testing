@@ -1,0 +1,441 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Step 2: Modify Functions to Persist Data</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Create Your Own Private Blockchain</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Project Introduction.html">01. Project Introduction</a>
+    </li>
+    <li class="">
+      <a href="02. Project Details.html">02. Project Details</a>
+    </li>
+    <li class="">
+      <a href="03. Step 1 Review Boilerplate Code.html">03. Step 1: Review Boilerplate Code</a>
+    </li>
+    <li class="">
+      <a href="04. Step 2 Modify Functions to Persist Data.html">04. Step 2: Modify Functions to Persist Data</a>
+    </li>
+    <li class="">
+      <a href="05. Step 3 Test New Functionality.html">05. Step 3: Test New Functionality</a>
+    </li>
+    <li class="">
+      <a href="06. Extra Support.html">06. Extra Support</a>
+    </li>
+    <li class="">
+      <a href="Project Description - Create Your Own Private Blockchain.html">Project Description - Create Your Own Private Blockchain</a>
+    </li>
+    <li class="">
+      <a href="Project Rubric - Create Your Own Private Blockchain.html">Project Rubric - Create Your Own Private Blockchain</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">04. Step 2: Modify Functions to Persist Data</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="-step-2-modify-functions-to-persist-data"># Step 2: Modify Functions to Persist Data</h2>
+<p>The provided boilerplate code holds all data within the chain array. However, all the data in chain array is at risk of permanent loss when the chain array is refreshed. Hence, your main task is to modify the functions to properly persist the dataset. </p>
+<p>The array needs to be replaced with LevelDB to persist the data. Functions that once worked with the array should now work with LevelDB.</p>
+<table>
+<thead>
+<tr>
+<th id="**requirement_1**"><strong>Requirement 1</strong></th>
+<th id="configure_leveldb_to_persist_dataset">Configure LevelDB to persist dataset</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Requirement 2</strong></td>
+<td>Modify simpleChain.js functions to persist data with LevelDB</td>
+</tr>
+<tr>
+<td><strong>Requirement 3</strong></td>
+<td>Modify getBlock() function</td>
+</tr>
+<tr>
+<td><strong>Requirement 4</strong></td>
+<td>Modify getBlockHeight() function</td>
+</tr>
+<tr>
+<td><strong>Requirement 5</strong></td>
+<td>Modify validate functions</td>
+</tr>
+</tbody>
+</table>
+<h2 id="note">Note</h2>
+<p>This is just one approach to completing the project goals, but not the only way. We encourage you to think creatively and logically about a solution that solves the project in accordance with general good coding practices.</p>
+<p>Let’s discuss each method you’ll be modifying in more detail.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/block-line-fill-small.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="-configure-leveldb-to-persist-dataset--"># Configure LevelDB to persist dataset  </h2>
+<p>As discussed in Step 1,  <strong>levelSandbox.js</strong> file already has project dependencies, the storage location for dataset, and configured the <strong>db</strong> object to reference level with <strong>chainDB</strong> as the location of our dataset.</p>
+<p>Make sure to configure simpleChain.js with LevelDB to persist blockchain dataset using the level Node.js library. </p>
+<p>The levelSandbox.js file already has a few basic functions implemented for you:</p>
+<ul>
+<li>addLevelDBData(key,value)</li>
+<li>addDataToLevelDB(value)</li>
+<li>getLevelDBData(key) </li>
+</ul>
+<p>These functions are implemented using callbacks. You have to modify those methods using Promises.</p>
+<h4 id="promises">Promises</h4>
+<p>The <code>Promise</code> object represents the eventual completion (or failure) of an asynchronous operation along with its resulting value. Remember that you will need to<code>resolve</code> or <code>reject</code> depending on the results:</p>
+<pre><code>return new Promise(function(resolve, reject){  // code });</code></pre>
+<p>Below is an example where we are reading each data from the <code>db</code> object asynchronously and resolving when we have the complete array of elements.</p>
+<pre><code class="javascript language-javascript">return new Promise(function(resolve, reject){
+            self.db.createReadStream()
+            .on('data', function (data) {
+                dataArray.push(data);
+            })
+            .on('error', function (err) {
+                reject(err)
+            })
+            .on('close', function () {
+                resolve(dataArray);
+            });
+        });</code></pre>
+<p>Looking for additional resources on Promises? Checkout the Extra Support section. </p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/block-line-fill-small.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="modify-simplechainjs-functions-to-persist-data-with-leveldb">Modify simpleChain.js functions to persist data with LevelDB</h1>
+<hr />
+<h3 id="addblocknewblock">addBlock(newBlock)</h3>
+<p>The main purpose of this function is to add a new block into the chain. To do that you'll need to assign the corresponding <strong><em>height</em></strong>, <strong><em>hash</em></strong>, <strong><em>previousBlockHash</em></strong> and <strong><em>timeStamp</em></strong> to your block.</p>
+<p>Remember that the last thing you have to do is send this new block to the persistent method in your data access layer:</p>
+<pre><code>addDataToLevelDB(newBlock.height, JSON.stringify(newBlock).toString());</code></pre>
+<h4 id="leveldb-object-key">LevelDB Object Key</h4>
+<p>We recommend you to use the <em>block height</em> as the key for objects in LevelDB. This is because each block in the chain will have a unique (and predictable) height value. </p>
+<h4 id="genesis-block">Genesis Block</h4>
+<p>Make sure the genesis block is persisted as the first block with <code>height=0</code></p>
+<p>Genesis Block should be added automatically when the chain is created. </p>
+<p>Additionally, when adding a new block to the chain, the code checks if a Genesis Block already exists. If not, one is created before adding a block. </p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/block-line-fill-small.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="-modify-getblock-function"># Modify getBlock() function</h2>
+<h3 id="getblockblockheight">getBlock(blockHeight)</h3>
+<p>If you follow our recommendation to use the block <strong><em>height</em></strong> as a key this should be an easy one function to implement using:</p>
+<pre><code>db.get(key, function(err, value) {
+            if (err) return console.log('Not found!', err);
+            callback(value);
+        });</code></pre>
+<p>or with Promises:</p>
+<pre><code>return new Promise((resolve, reject) =&gt; {
+            db.get(key, function(err, value) {
+                if (err) return console.log('Not found!', err);
+                resolve(value);
+            });
+        })</code></pre>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/block-line-fill-small.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="-modify-getblockheight-function"># Modify getBlockHeight() function</h2>
+<h3 id="getblockheight">getBlockHeight()</h3>
+<p>This function will allow you to count all the Blocks in your chain and give you as a result the last <strong><em>height</em></strong> in your chain, so if you need to create a new block you can get the the height and then say (given that you are using Promises):</p>
+<pre><code>getBlockHeight().then((height) =&gt; {
+            newBlock.Height = height + 1;
+        })</code></pre>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/block-line-fill-small.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="-modify-validate-functions"># Modify validate functions</h2>
+<h3 id="validateblockblockheight">validateBlock(blockHeight)</h3>
+<p>In the course, we have covered that one of the most important aspect of blockchain is data immutability. Hence in your private blockchain you need to make sure that no one has modified the content on one of the blocks.</p>
+<p>How can you validate your block data integrity? Recall that you have the hash of each block. If any data in the block is changed, the newly generated hash would be different from the original one. That is the logic used in this method:</p>
+<pre><code>if(validBlockHash === blockHash) {
+            resolve(true);
+        } else {
+            resolve(false);
+        }</code></pre>
+<p>Remember, to get the block hash, you need to first get the block from your chain using <code>getBlock(blockHeight)</code>.</p>
+<hr />
+<h3 id="validatechain">validateChain()</h3>
+<p>This method is very important because it allows us to know if the entire chain is still valid at any moment or not. validateBlock() allows us to validate a single block but we need a different way to verify the integrity of the entire chain. </p>
+<p>To validate the entire chain, we need to do 2 things:</p>
+<ul>
+<li>Validate each block in the chain</li>
+<li>Validate the links between blocks </li>
+</ul>
+<p>We need go through all the blocks in the chain and verify the block integrity and also verify that the previousBlockHash in the current block match with the hash in the previous block</p>
+<h4 id="refactor-with-promises">Refactor with Promises</h4>
+<p>If you'd like to refactor this method to use Promises, this method fits nicely into that schema. Here's a hint:</p>
+<pre><code>Promise.all(promises).then((results) =&gt; { ... });</code></pre>
+<p>Using this you can validate, for example, all the blocks in the chain if you create a list of promises for that validation (this is only a recommendation, not required).</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/block-line-fill-small.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="-rubric-item"># Rubric Item</h2>
+<p>Once you have completed this section successfully, you have fulfilled the requirements of these <a href="https://review.udacity.com/#!/rubrics/2040/view" target="_blank">rubric</a> sections:</p>
+<table>
+<thead>
+<tr>
+<th id="**rubric_section**"><strong>Rubric Section</strong></th>
+<th id="configure_leveldb_to_persist_dataset">Configure LevelDB to persist dataset</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Rubric Section</strong></td>
+<td>Modify simpleChain.js functions to persist data with LevelDB</td>
+</tr>
+<tr>
+<td><strong>Rubric Section</strong></td>
+<td>Modify getBlock() function</td>
+</tr>
+<tr>
+<td><strong>Rubric Section</strong></td>
+<td>Modify getBlockHeight() function</td>
+</tr>
+<tr>
+<td><strong>Rubric Section</strong></td>
+<td>Modify validate functions</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+
+          <div class="col-12">
+            <p class="text-right">
+              <a href="05. Step 3 Test New Functionality.html" class="btn btn-outline-primary mt-4" role="button">Next Concept</a>
+            </p>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.4.4</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('04. Step 2: Modify Functions to Persist Data')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+</body>
+
+</html>

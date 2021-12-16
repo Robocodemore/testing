@@ -1,0 +1,527 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Testnet Wallet Transactions</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Bitcoin Core Testnet</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Lesson Introduction.html">01. Lesson Introduction</a>
+    </li>
+    <li class="">
+      <a href="02. Bitcoin Core Overview.html">02. Bitcoin Core Overview</a>
+    </li>
+    <li class="">
+      <a href="03. Bitcoin Core Networks.html">03. Bitcoin Core Networks</a>
+    </li>
+    <li class="">
+      <a href="04. Mainnet vs Testnet.html">04. Mainnet vs Testnet</a>
+    </li>
+    <li class="">
+      <a href="05. Testnet vs Regnet.html">05. Testnet vs Regnet</a>
+    </li>
+    <li class="">
+      <a href="06. Data Warnings and Bitcoin.config Setup.html">06. Data Warnings and Bitcoin.config Setup</a>
+    </li>
+    <li class="">
+      <a href="07. Get Started with Bitcoin Core.html">07. Get Started with Bitcoin Core</a>
+    </li>
+    <li class="">
+      <a href="08. Bitcoin Core Wallet.html">08. Bitcoin Core Wallet</a>
+    </li>
+    <li class="">
+      <a href="09. Networks Demonstration.html">09. Networks Demonstration</a>
+    </li>
+    <li class="">
+      <a href="10. Get Testnet Coins.html">10. Get Testnet Coins</a>
+    </li>
+    <li class="">
+      <a href="11. Testnet Wallet Transactions.html">11. Testnet Wallet Transactions</a>
+    </li>
+    <li class="">
+      <a href="12. Block Explorer.html">12. Block Explorer</a>
+    </li>
+    <li class="">
+      <a href="13. Lesson Recap.html">13. Lesson Recap</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">11. Testnet Wallet Transactions</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>We have made this lesson, assuming that have downloaded Bitcoin-Core v.016, from here <a href="https://bitcoincore.org/bin/bitcoin-core-0.16.3/" target="_blank">https://bitcoincore.org/bin/bitcoin-core-0.16.3/</a>. We recommend you to use this version, to follow along these and further lessons.</p>
+<p>This is the latest version available while making this lesson.</p>
+<p>If you are using v0.17, we have added new instructions for you, so skip this concept and go to the next one "Bitcoin Core v0.17: Wallet Creation and Coin Transfer" and follow those instructions.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="testnet-wallet-transactions">Testnet Wallet Transactions</h1>
+<p>Transactions are a fundamental component of the entire bitcoin blockchain. It’s important to understand how to make and manage transactions using your wallet. Generally, you’d make transactions with the owner of another wallet.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/screen-shot-2018-05-31-at-9.38.27-am.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>To start testing transactions, you’ll need to make these same transactions on your local computer. To do this, you’ll need multiple wallets that allow you to jump back and forth to check out the transactions your making.</p>
+<p>Here, we’ll learn how to do exactly that. </p>
+<p>We’ll create multiple wallets then start to send transactions between them.</p>
+<h1 id="upcoming-steps">Upcoming Steps</h1>
+<p>To do this we’ll go through a few steps…</p>
+<ul>
+<li>Step 1: Find your Wallet</li>
+<li>Step 2: Create New Wallets</li>
+<li>Step 3: Set up Bitcoin.config file</li>
+<li>Step 4: Open Receiving Wallet</li>
+<li>Step 5: Get Receiving Address</li>
+<li>Step 6: Switch to sending Wallet</li>
+<li>Step 7: Get Testnet Coins</li>
+<li>Step 8: Make a Transaction</li>
+<li>Step 9: Check Transaction in Receiving Wallet</li>
+</ul>
+<p>This is a lot of steps, but it’s a great way to send transactions among multiple wallets that you own. This will allow you to pass coins between wallets both now, and later programmatically when we start building applications.</p>
+<h1 id="step-1-find-your-wallet">Step 1: Find your Wallet</h1>
+<p>From the user interface, we can’t actually create and jump between multiple wallets. What we need to do is create new wallets out of the files that store our application information.</p>
+<ul>
+<li><p>Navigate into the folder that contains all of your bitcoin core files. </p></li>
+<li><p>Within the main folder, you’ll see one labeled testnet3.</p></li>
+<li><p>Go into this folder and look for the sub-folder labeled wallets.</p></li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>What you should see is a file named wallet.dat. This is the main file that stores all of the information for your wallet. </p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="step-2-create-new-wallets">Step 2: Create New Wallets</h1>
+<p>To easily create new test wallets, you can duplicate this file. (Right click + Duplicate)</p>
+<ul>
+<li>For this example, duplicate this wallet 2 times. </li>
+<li>Rename one of the copies <strong>sending.dat</strong> </li>
+<li>Name the other copy <strong>receiving.dat</strong>.</li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/slide01.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>As the names suggest, we’ll use the sending wallet to send test coins to the receiving wallet with our transaction.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="step-3-set-up-bitcoin-config-file">Step 3: Set up Bitcoin Config File</h1>
+<p>Before we move on, it’s important to know how to get into each of these wallets. By default, the bitcoin core application will look for the wallet.dat file to load along with the application.</p>
+<p>One way to open a wallet is to rename the one you want opened to wallet.dat before you load the application. While this is possible, it’s not really the best option.</p>
+<p>What I prefer is to change the name of what the application is looking for. Many default options that you might like to override can be changed using the bitcoin config file.</p>
+<p>This is the same file we use to change between networks. </p>
+<ul>
+<li>To make this change, open the bitcoin.config file and type wallet = .</li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/slide02.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>Next, type in the wallet name you want loaded. </p>
+<p>Once you save the file this is will be the default wallet for your application. One thing to note is that if you type in a name here that doesn’t exist, a wallet with that name will be created when you first load the application.</p>
+<p>Ok, knowing that, let’s type in both of our wallet names.</p>
+<ul>
+<li>wallet = sending.dat</li>
+<li>wallet = receiving.dat</li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="step-4-open-receiving-wallet">Step 4: Open Receiving Wallet</h1>
+<p>We’ll start by opening the receiving wallet, so for now, comment out the sending.dat line with a #.</p>
+<ul>
+<li>#wallet = sending.dat</li>
+</ul>
+<p>Once you’re in, you can check the wallet name by going to the debug console and typing in getwalletinfo.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/slide06.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>This shows us all the wallet information, and most importantly for right now, we can see that our wallet name is receiving.dat.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="step-5-get-receiving-address">Step 5: Get Receiving Address</h1>
+<p>We’re only going to use this wallet to receive money from our sending wallet. </p>
+<p>To do this we need a receiving address. </p>
+<ul>
+<li>To get one Go to file &gt; receiving addresses &gt; new address </li>
+<li>Then copy the address and put it somewhere like a text document.</li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/screen-shot-2018-06-19-at-2.10.55-pm.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="step-6-switch-to-sending-wallet">Step 6: Switch to Sending Wallet</h1>
+<p>Now we want to switch over to our sending wallet.</p>
+<ul>
+<li>In the bitcoin config file, remove the comment from the sending wallet and add it to the receiving wallet.</li>
+<li>Now restart the application again.</li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <ul>
+<li>wallet = sending.dat</li>
+<li>#wallet = receiving.dat</li>
+</ul>
+<p>Once inside the wallet, head back to the debug console and check the name of the wallet using getwalletinfo.</p>
+<p>Looks like we’re in the sending wallet just like we wanted.</p>
+<p>The problem now is that we don’t have any coins to send. </p>
+<p>To get some, we can go back to the public faucet and request coins like we did before. </p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="step-7-get-testnet-coins">Step 7: Get testnet coins</h1>
+<ul>
+<li><p>To get testnet coins go to <a href="http://bitcoinfaucet.uo1.net/" target="_blank">Testnet Faucet</a></p></li>
+<li><p>Create and copy a receiving address for this wallet and request coins from the faucet. </p></li>
+<li><p>Soon you should have some testcoins that we can send over to our receiving wallet. </p></li>
+<li><p>You can check the overview tab to see both the transaction and the new balance.</p></li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/slide08.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>After all of this, we’re finally ready to make a transaction.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="step-8-make-a-transaction">Step 8: Make a Transaction</h1>
+<ul>
+<li><p>Go to the send tab and paste in the receiving address you had stored from your receiving wallet.</p></li>
+<li><p>Add in a label, an amount, and a transaction fee if you’d like.</p></li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/slide09.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>Once you hit send, the transaction will begin. </p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>Back on the overview page, you’ll see a new recent transaction for the amount you specified. </p>
+<p>You’ll also see that the available balance has decreased.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/slide10.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="step-9-see-transaction-on-receiving-wallet">Step 9: See Transaction on Receiving Wallet</h1>
+<p>The transaction is done, and we could stop here, but it’ll be nice to see if the transaction has been received by the receiving wallet.</p>
+<p>To do this, we need to switch wallets just like before. </p>
+<ul>
+<li>Make the small changes to the bitcoin config file and restart the application. </li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>Now, in the overview of your receiving wallet, you should see that the balance has gone up, and that there’s been a recent transaction for the amount you specified. </p>
+<p>If you didn’t add in the transaction fee up front, you’ll notice that the amount you received is actually slightly less than what you might expect. That’s because the transaction fee was taken out of the total amount you sent.</p>
+<h1 id="wrapping-up">Wrapping Up</h1>
+<p>That’s how to create transactions using your bitcoin core wallet. What we did here is actually WAY more than create a transaction. Making the transaction was really the simple part of all this. All it takes to do this is to put a receiving address, and an amount using the send tab.</p>
+<p>All the other steps we did were mostly to prepare us for testing and help us make transactions with ourselves. What we really did was set up 2 extra test wallets, got some coins from a faucet, and send those coins from one wallet to another. </p>
+<p>We’ll continue to use these test wallets as we build and test applications in the future.</p>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+
+          <div class="col-12">
+            <p class="text-right">
+              <a href="12. Block Explorer.html" class="btn btn-outline-primary mt-4" role="button">Next Concept</a>
+            </p>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.4.4</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('11. Testnet Wallet Transactions')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+</body>
+
+</html>

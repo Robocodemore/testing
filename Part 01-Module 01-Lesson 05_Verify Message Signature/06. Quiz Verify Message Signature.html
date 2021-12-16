@@ -1,0 +1,257 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Quiz: Verify Message Signature</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Verify Message Signature</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. What Will You Learn.html">01. What Will You Learn?</a>
+    </li>
+    <li class="">
+      <a href="02. Sign and Verify a Message.html">02. Sign and Verify a Message</a>
+    </li>
+    <li class="">
+      <a href="03. Step 1 Generate Private Public Keys using a Wallet Address.html">03. Step 1: Generate Private Public Keys using a Wallet Address</a>
+    </li>
+    <li class="">
+      <a href="04. Step 2 Sign a Message.html">04. Step 2: Sign a Message</a>
+    </li>
+    <li class="">
+      <a href="05. Step 3 Verify a Message Signature.html">05. Step 3: Verify a Message Signature</a>
+    </li>
+    <li class="">
+      <a href="06. Quiz Verify Message Signature.html">06. Quiz: Verify Message Signature</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">06. Quiz: Verify Message Signature</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="-step-by-step-instructions-to-solve-your-quiz"># Step by Step Instructions to solve your Quiz</h2>
+<ul>
+<li><p><strong>Step 1</strong>: Go to your Workspace, and open a New Terminal from the bottom section</p></li>
+<li><p><strong>Step 2</strong>: Install the bitcoinjs-message library in order to use the Verify algorithm:</p></li>
+</ul>
+<pre><code>npm install bitcoinjs-message</code></pre>
+<p>To confirm if the package has been installed, in the terminal run:</p>
+<pre><code>npm list &lt;library name&gt;</code></pre>
+<ul>
+<li><p><strong>Step 3</strong>: By default, your Workspace will open up a pre-generated file for you called "verifySignature.js".</p></li>
+<li><p><strong>Step 4</strong> : Import/Require the installed library</p>
+<pre><code> const bitcoinMessage = require('bitcoinjs-message');</code></pre></li>
+<li><p><strong>Step  5</strong>: In the code, these are already provided:<br />
+  1) A pre-defined wallet address <br />
+  2) A pre-generated message <br />
+  3) Three pre-generated signatures</p></li>
+<li><p><strong>Step 6</strong>: Using, the <code>bitcoinMessage.verify(message, address, signature)</code> function, your task is to find out, which signatures Verify to be "TRUE" and which signatures verify to be "FALSE" (hint: use console.log to output the result of the bitcoinMessage.verify function).</p></li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="your-workspace">Your Workspace</h2>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div class="jumbotron">
+  <h3>Workspace</h3>
+
+  <p class="lead">This section contains either a workspace (it can be a <a href="http://jupyter.org/" target="_blank">Jupyter
+      Notebook</a> workspace or an online code editor work space, etc.) and it cannot be automatically downloaded to be
+    generated here. Please access the classroom with your account and manually download the workspace to your local
+    machine. Note that for some courses, Udacity upload the workspace files onto <a href="https://github.com/udacity"
+      target="_blank">https://github.com/udacity</a>, so you may be able to download them there.</p>
+
+  <h4>Workspace Information:</h4>
+
+  <ul>
+    <li><strong>Default file path:</strong> </li>
+    <li><strong>Workspace type:</strong> generic</li>
+    <li>
+      <strong>Opened files (when workspace is loaded):</strong>
+      n/a
+    </li>
+
+  </ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3><p>Verify Message Signature</p></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><p>Which signature was produced by signing the message with the given wallet address?</p></legend>
+    </fieldset>
+
+      <div>
+        <input type="radio" value="a1535092577537" name="696584" id="a1535092577537">
+        <label for="a1535092577537"><p>signature_1</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1535092708553" name="696584" id="a1535092708553">
+        <label for="a1535092708553"><p>signature_2</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1535092713325" name="696584" id="a1535092713325">
+        <label for="a1535092713325"><p>signature_3</p></label>
+      </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    signature_2
+  </details>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+
+          <div class="col-12">
+            <p class="text-right">
+            </p>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.4.4</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('06. Quiz: Verify Message Signature')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,343 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Step 1: Review Boilerplate Code</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Create Your Own Private Blockchain</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Project Introduction.html">01. Project Introduction</a>
+    </li>
+    <li class="">
+      <a href="02. Project Details.html">02. Project Details</a>
+    </li>
+    <li class="">
+      <a href="03. Step 1 Review Boilerplate Code.html">03. Step 1: Review Boilerplate Code</a>
+    </li>
+    <li class="">
+      <a href="04. Step 2 Modify Functions to Persist Data.html">04. Step 2: Modify Functions to Persist Data</a>
+    </li>
+    <li class="">
+      <a href="05. Step 3 Test New Functionality.html">05. Step 3: Test New Functionality</a>
+    </li>
+    <li class="">
+      <a href="06. Extra Support.html">06. Extra Support</a>
+    </li>
+    <li class="">
+      <a href="Project Description - Create Your Own Private Blockchain.html">Project Description - Create Your Own Private Blockchain</a>
+    </li>
+    <li class="">
+      <a href="Project Rubric - Create Your Own Private Blockchain.html">Project Rubric - Create Your Own Private Blockchain</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">03. Step 1: Review Boilerplate Code</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="-step-1-review-boilerplate-code"># Step 1. Review Boilerplate Code</h2>
+<p>The provided boilerplate code contains two files - levelSandbox.js and simpleChain.js.</p>
+<p>In this section, we will discuss the purpose of these two files and how to approach implementing the required functionalities to persist data and validate the blockchain ledger utilizing block hashes.</p>
+<p><strong>New</strong>: If you want to create the project using ES6 classes or use different files for the functionalities, we provide you with new Starter Code for the project. It is not required to pass the project but you may find it interesting.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/block-line-fill-small.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="-project-boilerplate"># Project boilerplate</h2>
+<p>To get started, first download the project boilerplate code. </p>
+<blockquote>
+  <p><a href="https://s3.amazonaws.com/video.udacity-data.com/topher/2018/June/5b2da025_project-2/project-2.zip" target="_blank">Download project boilerplate</a></p>
+</blockquote>
+<blockquote>
+  <p><a href="https://github.com/udacity/nd1309-work-code/tree/master/Course_Blockchain_Data/Project_2_es6_starter_code" target="_blank">Download or clone project boilerplate ES6 classes</a></p>
+</blockquote>
+<p><strong>Note</strong>: In the project instructions, the file name used can be slightly different between the 2 boilerplate code provided, just to avoid confusions the instructions described in each step are based on the first boilerplate code files name.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/block-line-fill-small.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="-understand-the-boilerplate-code"># Understand the boilerplate code</h2>
+<p>The boilerplate code has 2 main files:</p>
+<ul>
+<li>levelSandbox.js</li>
+<li>simpleChain.js</li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="the-levelsandboxjs-file">The levelSandbox.js File</h2>
+<h3 id="purpose">Purpose</h3>
+<p><code>levelSandbox.js</code> implements the data interaction for your Private Blockchain. It is the Data Access Layer for the application. </p>
+<p>For this project, we will need to configure our private blockchain to persist data using <a href="http://leveldb.org/" target="_blank">LevelDB</a> as the data access layer.</p>
+<p>Review the documentation below as it will be very helpful when you need to implement functions to access data or to add data to the storage.</p>
+<blockquote>
+  <p><a href="http://leveldb.org/" target="_blank">LevelDB Documentation</a> -  a light-weight, single-purpose library for persistence with bindings to many platforms.</p>
+</blockquote>
+<p>In the file, we added the project dependencies, established the storage location for dataset, and configured the db object to reference level with chainDB as the location of our dataset. </p>
+<pre><code>const level = require('level');
+const chainDB = './chaindata';
+const db = level(chainDB);</code></pre>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h3 id="functionality">Functionality</h3>
+<p>This file already has a few basic functions implemented for you:</p>
+<ul>
+<li>addLevelDBData(key,value)</li>
+<li>addDataToLevelDB(value)</li>
+<li>getLevelDBData(key) </li>
+</ul>
+<p>These functions are implemented using callbacks but you are free to go and modify those methods using Promises which is discussed in further details in Step 3: Modify Functions to Persist Data.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/block-line-fill-small.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="the-simplechainjs-file">The simpleChain.js file</h2>
+<h3 id="purpose">Purpose</h3>
+<p><code>simpleChain.js</code> implements the classes that are part of your private blockchain application.</p>
+<h4 id="block-class">Block class</h4>
+<pre><code class="javascript language-javascript">class Block{
+    constructor(data){
+     this.hash = "",
+     this.height = 0,
+     this.body = data,
+     this.time = 0,
+     this.previousBlockHash = ""
+    }
+}</code></pre>
+<p>The Block class contains all the attributes of a block. Review these elements and make sure you understand why each one is important in your Private Blockchain application.</p>
+<h4 id="blockchain-class">Blockchain class</h4>
+<pre><code class="javascript language-javascript">class Blockchain{
+  constructor(){
+    this.chain = [];
+    this.addBlock(new Block("First block in the chain - Genesis block"));
+  }
+...</code></pre>
+<p>The Blockchain class currently implements all these functionalities in your application and all data is held within the chain array.  In the next step, we will discuss how to modify these to persist data. </p>
+<ul>
+<li><code>addBlock(newBlock)</code> - Adds a new block into the chain, to do that you need to assign the corresponding height, hash, previousBlockHash and timeStamp to your block. </li>
+<li><code>getBlockHeight()</code> - Counts all the Blocks in your chain and give you as a result the last height in your chain</li>
+<li><code>getBlock(blockHeight)</code> - Gets a block and returns it as JSON string object</li>
+<li><code>validateBlock(blockHeight)</code> - Validates block data integrity</li>
+<li><code>validateChain()</code> - Validates blockchain is still valid at any moment</li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/block-line-fill-small.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="-up-next"># Up Next</h2>
+<p>Now that you have a better understanding of the boilerplate code, next we will discuss how to approach modifying these methods. </p>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+
+          <div class="col-12">
+            <p class="text-right">
+              <a href="04. Step 2 Modify Functions to Persist Data.html" class="btn btn-outline-primary mt-4" role="button">Next Concept</a>
+            </p>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.4.4</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('03. Step 1: Review Boilerplate Code')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+</body>
+
+</html>

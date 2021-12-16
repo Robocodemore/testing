@@ -1,0 +1,319 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Recap of Consensus Protocols</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Managing Blockchain Transactions</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Lesson Overview.html">01. Lesson Overview</a>
+    </li>
+    <li class="">
+      <a href="02. Intro to Wallet Types.html">02. Intro to Wallet Types</a>
+    </li>
+    <li class="">
+      <a href="03. Private Keys.html">03. Private Keys</a>
+    </li>
+    <li class="">
+      <a href="04. Different Types of Wallets.html">04. Different Types of Wallets</a>
+    </li>
+    <li class="">
+      <a href="05. Signing a Transaction.html">05. Signing a Transaction</a>
+    </li>
+    <li class="">
+      <a href="06. Memory Pool.html">06. Memory Pool</a>
+    </li>
+    <li class="">
+      <a href="07. Part 2 Memory Pool.html">07. Part 2: Memory Pool</a>
+    </li>
+    <li class="">
+      <a href="08. Achieving Consensus via the Mining Process.html">08. Achieving Consensus via the Mining Process</a>
+    </li>
+    <li class="">
+      <a href="09. Other Consensus Models.html">09. Other Consensus Models</a>
+    </li>
+    <li class="">
+      <a href="10. Recap of Consensus Protocols.html">10. Recap of Consensus Protocols</a>
+    </li>
+    <li class="">
+      <a href="11. Hashing.html">11. Hashing</a>
+    </li>
+    <li class="">
+      <a href="12. Blocks and Blockchains.html">12. Blocks and Blockchains</a>
+    </li>
+    <li class="">
+      <a href="13. P2P Network.html">13. P2P Network</a>
+    </li>
+    <li class="">
+      <a href="14. Course Recap.html">14. Course Recap</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">10. Recap of Consensus Protocols</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="recap-of-consensus-protocols">Recap of Consensus Protocols</h1>
+<p>In the past couple concepts, you explored the challenges of achieving consensus in a distributed network and how different Blockchains use different Consensus protocols to solve this.  <br />
+Let’s do a quick recap.</p>
+<h2 id="byzantine-generals’-problem">Byzantine Generals’ Problem</h2>
+<p>As we saw in the Byzantines’ General Problem, this challenge has been around for a while -  achieving consensus in a distributed system with suboptimal communication between participants who do not necessarily trust each other isn’t new.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/screen-shot-2018-04-11-at-12.01.31-pm.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="proof-of-work-pow">Proof of Work (PoW)</h2>
+<p>Bitcoin figured out how to use the Proof of Work algorithm to solve this issue. </p>
+<p>The main innovation that Satoshi Nakamoto introduced in Bitcoin’s white paper is using proof of work (POW) to achieve consensus without a central authority and solve the double-spend problem. </p>
+<h3 id="how-does-it-work">How Does It Work?</h3>
+<p>PoW involves miner nodes, or miners, to solve a math puzzle that requires a lot of computation power. Whichever miner is able to solve the puzzle the fastest is able to add a block of transactions to the blockchain, and in return, they are paid the transaction fees from all the transactions included in the block as well as paid by the network with bitcoins that were newly created upon the “mining” of the block. </p>
+<h3 id="potential-issues">Potential Issues</h3>
+<p>2 Commonly discussed issues with Proof of Work are - </p>
+<ol>
+<li>Extremely High-Energy Consumption</li>
+<li>A Monopoloy of Miners which Leads to a Concern for System Centralizations </li>
+</ol>
+<h2 id="in-addition-to-proof-of-work-we-looked-at-other-forms-of-consensus"><em>In addition to Proof of Work, we looked at other forms of Consensus</em></h2>
+<h2 id="proof-of-stake">Proof of Stake</h2>
+<p>In the Proof-of-Stake Consensus Protocol, there are no more miners; instead, there are Validators. These validators, or stakeholders, determine which block makes it onto the blockchain. In order to validate transactions and create blocks, validators puts their own coins as “stake”. Think of it as they are placing a bet - if they validate a fraudulent transaction, they lose their holdings as well as their rights to participate as a validator in the future. In theory, this check incentivizes the system to validate only truthful transactions. </p>
+<h3 id="potential-issues-1">Potential Issues</h3>
+<p>We discussed the “Nothing At Stake” problem in which a bad acting Validator places bets on multiple forks so they theoretically always win out in the end.  </p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/screen-shot-2018-04-11-at-11.55.29-am.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h3 id="proposed-solutions">Proposed Solutions</h3>
+<p><strong>Slasher</strong> Strategy which entails penalizing validators if they simultaneously create blocks on multiple chains. </p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/screen-shot-2018-04-11-at-11.59.33-am.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>Additionally there’s the <strong>Punisher</strong> Strategy which simply punishes validators for creating blocks on the wrong chain. In this method, Validators will be motivated to be selective and conscious about which blockchain they put their stake in. </p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/screen-shot-2018-04-11-at-11.58.02-am.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h3 id="who’s-using-it">Who’s Using It?</h3>
+<p><a href="https://www.ethereum.org/" target="_blank">Ethereum</a>, <a href="https://www.dash.org/" target="_blank">DASH</a>, and <a href="https://lisk.io/" target="_blank">LISK</a> are big proponents</p>
+<h2 id="delegated-byzantine-fault-tolerance-dbft">Delegated Byzantine Fault Tolerance (dBFT)</h2>
+<p>dBFT uses a system similar to a democracy where Ordinary Nodes the system vote on representative Delegate Nodes to decide which blocks should be added to the blockchain. When it’s time to add a block, a Speaker is randomly assigned from the group of Delegates to create a new block and propose the new block. <em>66.66% of delegates need to approve on the block for it to pass.</em></p>
+<h3 id="potential-issues">Potential Issues</h3>
+<p>Two issues we explored were the case of the <em>Dishonest Speaker</em> and the <em>Dishonest Delegate</em>.</p>
+<h4 id="dishonest-speaker">Dishonest Speaker</h4>
+<p>There is always a chance the Speaker, who is randomly selected from the Delegates, could be dishonest or malfunctions. In this situation, the network needs to rely on honest delegates to vote the proposed block down so it doesn’t reach 66% approval. It is up to users of protocol who vote on Delegates,  to find out which delegate are not trustworthy and vote on other delegates that are truthful.</p>
+<h4 id="dishonest-delegate">Dishonest Delegate</h4>
+<p>In this case, the chosen Speaker is honest but there are Dishonest Delegates in the system meaning even if they receive a proposal for new block that is faulty, they can say it is valid. If it is a minority of delegates that are dishonest, the block will not make it and new speaker is elected</p>
+<h3 id="who’s-using-it-1">Who’s Using It?</h3>
+<p><a href="https://neo.org/" target="_blank">NEO</a> is a big advocator of this protocol.</p>
+<h2 id="in-conclusion">In Conclusion</h2>
+<p>While, Proof of Work and Proof of Stake are definitely the more popular choices, there are newer mechanisms coming up and proving themselves. </p>
+<p>Remember that a consensus algorithm gets its reputation from being safe for a long period of time </p>
+<p>There is no “perfect” consensus mechanism, and chances are that there never will be, but it is interesting to see newer cryptocurrencies coming out with their own protocols and understand their pros and cons. </p>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+
+          <div class="col-12">
+            <p class="text-right">
+              <a href="11. Hashing.html" class="btn btn-outline-primary mt-4" role="button">Next Concept</a>
+            </p>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.4.4</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('10. Recap of Consensus Protocols')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+</body>
+
+</html>

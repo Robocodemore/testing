@@ -1,0 +1,355 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.085
+Our next task is to secure blocks in a chain.
+
+00:00:03.085 --> 00:00:09.570
+We plan to utilize the SHA256 algorithm to produce the hash value for a block data.
+
+00:00:09.570 --> 00:00:15.045
+There are several libraries available to us from third parties for our Node.js project.
+
+00:00:15.045 --> 00:00:18.445
+For this project, we plan to utilize crypto-js.
+
+00:00:18.445 --> 00:00:24.375
+Let's exit our node environment and install crypto-js using Node Package Manager.
+
+00:00:24.375 --> 00:00:26.580
+To exit the node environment,
+
+00:00:26.580 --> 00:00:29.760
+type in period and then exit.
+
+00:00:29.760 --> 00:00:33.725
+Let's restructure just to verify that we have
+
+00:00:33.725 --> 00:00:37.685
+our files available to us, more specifically, package.json.
+
+00:00:37.685 --> 00:00:39.205
+Earlier in this lesson,
+
+00:00:39.205 --> 00:00:42.230
+we've displayed initializing the project
+
+00:00:42.230 --> 00:00:46.240
+utilizing Node Package Manager which created the package.json.
+
+00:00:46.240 --> 00:00:52.645
+We want to utilize the save flag to save crypto- js as a dependency for our project.
+
+00:00:52.645 --> 00:00:54.760
+Let's perform that now.
+
+00:01:00.890 --> 00:01:06.560
+The response from Node Package Manager is providing a couple of warnings.
+
+00:01:06.560 --> 00:01:09.010
+The first warning is that,
+
+00:01:09.010 --> 00:01:11.635
+there's no description for a project.
+
+00:01:11.635 --> 00:01:16.090
+The next, is that our project is missing a repository film.
+
+00:01:16.090 --> 00:01:21.150
+We can investigate this further by opening our package.json file.
+
+00:01:21.150 --> 00:01:25.060
+Let's go ahead and do that. When we open the package.json file,
+
+00:01:25.060 --> 00:01:29.575
+you'll notice that we have a new field called dependencies.
+
+00:01:29.575 --> 00:01:34.080
+Within dependencies, we have crypto-js that's been recorded for us.
+
+00:01:34.080 --> 00:01:38.500
+Great. Now, we have crypto-js library available for us within our project.
+
+00:01:38.500 --> 00:01:41.455
+Let's go ahead and navigate back to the Node environment.
+
+00:01:41.455 --> 00:01:46.270
+Type in node, let's close the package.json file.
+
+00:01:46.270 --> 00:01:49.210
+Within our simple chain.js,
+
+00:01:49.210 --> 00:01:52.865
+let's navigate to the top of our file.
+
+00:01:52.865 --> 00:01:57.315
+We need to configure a constant variable called SHA-256.
+
+00:01:57.315 --> 00:02:01.815
+To do that, we'll type in const which stands for constant.
+
+00:02:01.815 --> 00:02:04.995
+We'll call it SHA256,
+
+00:02:04.995 --> 00:02:12.610
+and will require crypto-js library referencing to the SHA256 algorithm.
+
+00:02:21.940 --> 00:02:24.120
+Within our block class,
+
+00:02:24.120 --> 00:02:30.155
+let's modify our addBlock function to include the generation of our BlockHash.
+
+00:02:30.155 --> 00:02:36.675
+We need to call our newBlock and we're going to reference to our hash value.
+
+00:02:36.675 --> 00:02:38.750
+Next, we're going to go ahead and call
+
+00:02:38.750 --> 00:02:45.425
+the SHA256 library and then we're going to pass it our value, construct our hash.
+
+00:02:45.425 --> 00:02:49.675
+To do this, SHA256 requires a string of data.
+
+00:02:49.675 --> 00:02:53.100
+So, we're going to go ahead and utilize JSON,
+
+00:02:53.100 --> 00:02:56.800
+and we're going to stringify the object.
+
+00:02:57.350 --> 00:03:00.960
+That object is going to be our newBlock.
+
+00:03:01.500 --> 00:03:03.825
+Then, what we want to do,
+
+00:03:03.825 --> 00:03:08.110
+is take that response and turn it into a string.
+
+00:03:09.370 --> 00:03:13.930
+Next, we need to configure a reference to the previous Block.
+
+00:03:13.930 --> 00:03:17.290
+The previous Block might not exist which is why we need to construct
+
+00:03:17.290 --> 00:03:21.950
+a conditional statement to check if the chain contains data.
+
+00:03:22.290 --> 00:03:25.060
+Above our newBlock hash,
+
+00:03:25.060 --> 00:03:28.340
+let's go ahead and establish our conditional statement.
+
+00:03:28.340 --> 00:03:37.040
+If this chain length is greater than zero,
+
+00:03:40.020 --> 00:03:42.130
+we need a reference to
+
+00:03:42.130 --> 00:03:48.660
+our newBlock object and we're going to go to the previous BlockHash.
+
+00:03:53.720 --> 00:04:00.910
+This.chain, and let's get the previous object in the chain.
+
+00:04:02.700 --> 00:04:07.795
+We're going to go ahead and put minus one because
+
+00:04:07.795 --> 00:04:12.345
+the array length starts off at one versus zero.
+
+00:04:12.345 --> 00:04:14.220
+So, we're going to go ahead and subtract one,
+
+00:04:14.220 --> 00:04:15.975
+so it can start off at zero.
+
+00:04:15.975 --> 00:04:20.085
+Now, we're going to reference to that object's Hash.
+
+00:04:20.085 --> 00:04:25.080
+Now, that we have generation of our BlockHash with a reference to the previous BlockHash,
+
+00:04:25.080 --> 00:04:27.835
+it's time to configure our Genesis Block and make
+
+00:04:27.835 --> 00:04:31.215
+sure that it's always included at the beginning of the array.
+
+00:04:31.215 --> 00:04:35.190
+To do this, we will utilize our Blockchain Class constructor.
+
+00:04:35.190 --> 00:04:36.920
+Underneath our chain array,
+
+00:04:36.920 --> 00:04:41.425
+let's go ahead and create a new Genesis block.
+
+00:04:41.425 --> 00:04:44.245
+We're going to type in this.addBlock.
+
+00:04:44.245 --> 00:04:47.215
+To utilize our addBlock function,
+
+00:04:47.215 --> 00:04:52.884
+we're going to go ahead and create a newBock and within that newBlock,
+
+00:04:52.884 --> 00:05:00.860
+we want to add some data that references to our Genesis Block.
+
+00:05:01.480 --> 00:05:05.850
+Let's call this, "First block in the chain",
+
+00:05:05.850 --> 00:05:11.170
+and then we'll make sure that we reference this as the Genesis Block.
+
+00:05:14.570 --> 00:05:19.305
+Excellent. This is a great time to test our code.
+
+00:05:19.305 --> 00:05:20.960
+Within our command prompt,
+
+00:05:20.960 --> 00:05:25.735
+let's go ahead and make sure to test code within our Node environment.
+
+00:05:25.735 --> 00:05:28.815
+Because we exited out of our Node environment,
+
+00:05:28.815 --> 00:05:31.060
+and then we re-entered the Node environment,
+
+00:05:31.060 --> 00:05:37.390
+we need to make sure that we paste the entire code of our file.
+
+00:05:40.820 --> 00:05:45.255
+Perfect. Now, it's time to test.
+
+00:05:45.255 --> 00:05:54.170
+We need to go ahead and create a Blockchain variable and instantiate our Blockchain.
+
+00:05:56.580 --> 00:06:03.320
+Now, let's test by adding a new Block.
+
+00:06:09.920 --> 00:06:15.010
+Let's view the contents of our Blockchain array.
+
+00:06:22.970 --> 00:06:25.560
+In our previous BlockHash,
+
+00:06:25.560 --> 00:06:31.020
+it's reporting an error and it looks like that I neglected [inaudible] provide camelcase values.
+
+00:06:31.020 --> 00:06:33.530
+Looking at our constructor,
+
+00:06:33.530 --> 00:06:37.150
+it looks like that that's actually an easy fix.
+
+00:06:37.150 --> 00:06:39.730
+Since we notice an error during testing,
+
+00:06:39.730 --> 00:06:43.240
+let's go ahead and exit out of our Node environment,
+
+00:06:43.240 --> 00:06:48.050
+copy our code, re-enter a Node environment and paste it in.
+
+00:06:48.050 --> 00:06:50.845
+To exit, we type ".
+
+00:06:50.845 --> 00:06:53.880
+exit". Then, to re-enter,
+
+00:06:53.880 --> 00:06:55.930
+we just type in node.
+
+00:06:56.660 --> 00:06:59.640
+Within our script file, we'll "Select,
+
+00:06:59.640 --> 00:07:07.120
+All", "Copy", and we'll "Paste" that in.
+
+00:07:07.730 --> 00:07:09.825
+Excellent.
+
+00:07:09.825 --> 00:07:12.250
+Let's test.
+
+00:07:20.030 --> 00:07:21.785
+As you can tell,
+
+00:07:21.785 --> 00:07:25.910
+testing provides great value as you're developing your project,
+
+00:07:25.910 --> 00:07:28.110
+because errors are going to happen.
+
+00:07:28.110 --> 00:07:32.240
+So, let's go ahead and make corrections once when they're discovered.
+
+00:07:32.240 --> 00:07:38.600
+Excellent. We corrected the issue with the camelcase value for our previous block.
+
+00:07:38.600 --> 00:07:44.180
+Our Blockchain has the first Genesis Block with the unique hash value.
+
+00:07:44.180 --> 00:07:47.495
+There is no previous BlockHash, therefore it's empty.
+
+00:07:47.495 --> 00:07:49.520
+Our next block on the chain has
+
+00:07:49.520 --> 00:07:53.869
+a unique hash value and it's referencing to the previous BlockHash,
+
+00:07:53.869 --> 00:07:55.890
+which is our Genesis Block.
+
+00:07:55.890 --> 00:07:59.840
+Let's go ahead and add another block to the chain to verify that
+
+00:07:59.840 --> 00:08:05.820
+the chain is staying consistent with the way that is linking between hashes.
+
+00:08:10.370 --> 00:08:13.410
+We have our Genesis Block,
+
+00:08:13.410 --> 00:08:18.730
+our next block, and our most recent block.
+
+00:08:20.080 --> 00:08:26.800
+Each block is taking the hash value from the previous block.
+
+00:08:27.380 --> 00:08:33.895
+To recap, we configured the SHA256 algorithm utilizing crypto-js library,
+
+00:08:33.895 --> 00:08:39.675
+that has been included as a constant variable at the top of our simple chain.js file.
+
+00:08:39.675 --> 00:08:41.785
+Within our Blockchain class,
+
+00:08:41.785 --> 00:08:45.975
+we modified our constructor to include the new Genesis Block.
+
+00:08:45.975 --> 00:08:48.900
+Next, we modified the addBlock function.
+
+00:08:48.900 --> 00:08:52.010
+We made sure to include a conditional statement.
+
+00:08:52.010 --> 00:08:58.665
+Next, we go ahead and define our hash value for the block by taking the data,
+
+00:08:58.665 --> 00:09:02.290
+converting it into a string and then passing
+
+00:09:02.290 --> 00:09:06.980
+the response as a string to our block's hash.
+
+00:09:06.980 --> 00:09:10.450
+Then, we add the block to the chain.
+

@@ -1,0 +1,241 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Create a Raw Transaction Motivation</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Blockchain Data</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Note to Beta testers.html">01. Note to Beta testers</a>
+    </li>
+    <li class="">
+      <a href="02. Lesson Overview.html">02. Lesson Overview</a>
+    </li>
+    <li class="">
+      <a href="03. Blockchain Data Models.html">03. Blockchain Data Models</a>
+    </li>
+    <li class="">
+      <a href="04. Transaction Data Models.html">04. Transaction Data Models</a>
+    </li>
+    <li class="">
+      <a href="05. Bitcoin Scripts.html">05. Bitcoin Scripts</a>
+    </li>
+    <li class="">
+      <a href="06. Opcodes.html">06. Opcodes</a>
+    </li>
+    <li class="">
+      <a href="07. Attributes of Script.html">07. Attributes of Script</a>
+    </li>
+    <li class="">
+      <a href="08. Raw Transaction Review.html">08. Raw Transaction Review</a>
+    </li>
+    <li class="">
+      <a href="09. Create Raw Transaction Motivation.html">09. Create Raw Transaction Motivation</a>
+    </li>
+    <li class="">
+      <a href="10. Create a Raw Transaction Motivation.html">10. Create a Raw Transaction Motivation</a>
+    </li>
+    <li class="">
+      <a href="11. Embedding Data in Transactions.html">11. Embedding Data in Transactions</a>
+    </li>
+    <li class="">
+      <a href="12. Embedding Data in Bitcoin Core.html">12. Embedding Data in Bitcoin Core</a>
+    </li>
+    <li class="">
+      <a href="13. Ethics of Embedding Data.html">13. Ethics of Embedding Data</a>
+    </li>
+    <li class="">
+      <a href="14. Lesson Summary and Project Prep Overview.html">14. Lesson Summary and Project Prep Overview</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">10. Create a Raw Transaction Motivation</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="motivation-for-creating-transactions">Motivation for Creating Transactions</h2>
+<p>Now that we know the parts of a raw transaction, let’s use the Bitcoin protocol to build our own raw transaction.</p>
+<p>As discussed, you’ve seen the Bitcoin core wallet which allows us to leverage a lot of functionality of the Bitcoin Protocol but it does limit what we can do from the provided GUI.</p>
+<p>To really leverage the full power of the protocol, we need to bypass the GUI and work directly with the protocol.</p>
+<p>This will help you to know what commands to implement when building your own private blockchain.</p>
+<h2 id="motivation-for-the-project">Motivation for the Project</h2>
+<p>Knowing this skill will help you when you’re building a private blockchain that can perform transactions and secure the block with a digital signature</p>
+<p>Here are the steps we will take:</p>
+<ul>
+<li>Step 1 - View all unspent confirmed UTXO in the wallet</li>
+<li>Step 2 - View Details about a Specific UTXO</li>
+<li>Step 3 - Create a Raw Transaction</li>
+<li>Step 4 - Decode the Raw Transaction (to doublecheck it went through correctly)</li>
+<li>Step 5 - Sign the Raw Transaction </li>
+<li>Step 6 - Submit the Raw Transaction to the Network</li>
+<li>Step 7 - Query the TxID of the Transaction we sent</li>
+</ul>
+<p>One thing to notice is that these steps follow the Transaction lifecycle flow we’ve seen before: </p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/screen-shot-2018-05-31-at-3.10.08-pm.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>In the next few sections, I’ll walk you through the steps to create a raw transaction using commands from the debug console. </p>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+
+          <div class="col-12">
+            <p class="text-right">
+              <a href="11. Embedding Data in Transactions.html" class="btn btn-outline-primary mt-4" role="button">Next Concept</a>
+            </p>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.4.4</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('10. Create a Raw Transaction Motivation')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+</body>
+
+</html>

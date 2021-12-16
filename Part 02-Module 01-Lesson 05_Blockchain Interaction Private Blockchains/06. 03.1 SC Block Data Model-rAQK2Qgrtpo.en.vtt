@@ -1,0 +1,250 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.860 --> 00:00:03.005
+To kick up our project,
+
+00:00:03.005 --> 00:00:05.620
+the very first thing we're going to want to do is open up
+
+00:00:05.620 --> 00:00:11.240
+a new terminal session on the bottom right panel of workspaces like New Terminal.
+
+00:00:12.680 --> 00:00:18.280
+Within this terminal, we're going to want to navigate to our project working directory.
+
+00:00:18.280 --> 00:00:20.425
+Don't worry, we created this for you.
+
+00:00:20.425 --> 00:00:24.485
+If we go ahead and issue the command list structure, which is LS,
+
+00:00:24.485 --> 00:00:30.080
+press enter, you'll notice that we have a project working directory called Project_2.
+
+00:00:30.080 --> 00:00:33.565
+We can utilize the command change directory
+
+00:00:33.565 --> 00:00:36.355
+to navigate to that project working directory.
+
+00:00:36.355 --> 00:00:40.095
+To do this, we just simply type in cd for change directory,
+
+00:00:40.095 --> 00:00:43.625
+and then we type in the name of our directory.
+
+00:00:43.625 --> 00:00:46.039
+Fantastic. At this point,
+
+00:00:46.039 --> 00:00:50.060
+you're going to want to go ahead and initialize your project
+
+00:00:50.060 --> 00:00:55.130
+by issuing the command for the node package manager initialization,
+
+00:00:55.130 --> 00:01:02.115
+npm init, that stands for node package manager initialization.
+
+00:01:02.115 --> 00:01:03.895
+Once we have that configured,
+
+00:01:03.895 --> 00:01:05.990
+go ahead and press enter to kick it off.
+
+00:01:05.990 --> 00:01:09.935
+Now, it's going to prompt you for a few questions specific to your project.
+
+00:01:09.935 --> 00:01:13.315
+Feel free to accept the defaults because at anytime,
+
+00:01:13.315 --> 00:01:16.750
+you can go ahead and edit the contents of this file.
+
+00:01:16.750 --> 00:01:20.530
+So, we're going to go ahead and accept the defaults.
+
+00:01:21.670 --> 00:01:28.410
+All right. You'll notice that it produce an output in JSON format.
+
+00:01:28.410 --> 00:01:32.685
+We kind of figured so considering the name of this file is package.json.
+
+00:01:32.685 --> 00:01:34.755
+We can see that right here.
+
+00:01:34.755 --> 00:01:39.960
+Okay. So, now that we have our package.json configured,
+
+00:01:39.960 --> 00:01:44.660
+this allows us to store project dependencies within the
+
+00:01:44.660 --> 00:01:50.555
+package.json for future installation of this project on other machines.
+
+00:01:50.555 --> 00:01:55.020
+Super useful. Okay. Now, to kick things off,
+
+00:01:55.020 --> 00:01:57.520
+to create our own private blockchain,
+
+00:01:57.520 --> 00:02:00.800
+we're going to want to create our blockchain data model,
+
+00:02:00.800 --> 00:02:05.105
+and that means that we need to look at what a block looks like.
+
+00:02:05.105 --> 00:02:10.150
+So, let's go ahead and take a look at an existing block on the testnet.
+
+00:02:10.150 --> 00:02:12.725
+On the left-hand panel of your screen,
+
+00:02:12.725 --> 00:02:15.620
+you'll notice we have Project_2 in your file explorer.
+
+00:02:15.620 --> 00:02:17.780
+Let's double-click it to open the contents.
+
+00:02:17.780 --> 00:02:19.340
+We have our package.json,
+
+00:02:19.340 --> 00:02:23.215
+and then we have testnet_block_1325438.
+
+00:02:23.215 --> 00:02:27.020
+Let's go ahead and select testnet_block so we can reverse
+
+00:02:27.020 --> 00:02:30.970
+engineer the data model and simplify it for our means.
+
+00:02:30.970 --> 00:02:34.250
+Let's go ahead and select everything inside
+
+00:02:34.250 --> 00:02:38.050
+this file so we can go ahead and create our own data model.
+
+00:02:38.050 --> 00:02:40.610
+To do that, I'm going to go ahead and select
+
+00:02:40.610 --> 00:02:44.530
+the entire contents of this file and then copy it.
+
+00:02:44.530 --> 00:02:46.875
+What I want to do is create a new file.
+
+00:02:46.875 --> 00:02:48.620
+I tend to use touch.
+
+00:02:48.620 --> 00:02:50.190
+So, down in the terminal window,
+
+00:02:50.190 --> 00:02:56.875
+I'm going to issue the command touch and I'm just going to call this notes.txt.
+
+00:02:56.875 --> 00:03:01.475
+Okay. Perfect. You'll notice in your file navigation window
+
+00:03:01.475 --> 00:03:06.235
+on the left panel of your screen, we have notes.txt.
+
+00:03:06.235 --> 00:03:10.250
+We'll open that file by double-clicking on it and it's empty.
+
+00:03:10.250 --> 00:03:16.060
+So, what we're going to do is now paste the contents from our clipboard to this file.
+
+00:03:16.060 --> 00:03:18.410
+The screen bigger. Okay. So, now,
+
+00:03:18.410 --> 00:03:22.090
+let's go ahead and remove the data that we don't need for our data model.
+
+00:03:22.090 --> 00:03:26.775
+Remember, we are building a simplified private blockchain,
+
+00:03:26.775 --> 00:03:30.410
+meaning there is no need for a consensus algorithm at this time.
+
+00:03:30.410 --> 00:03:36.295
+Let's go ahead and remove everything other than the hash,
+
+00:03:36.295 --> 00:03:38.775
+the body of the block,
+
+00:03:38.775 --> 00:03:45.510
+the block height, the time that the block was entered into the chain,
+
+00:03:45.510 --> 00:03:50.230
+and of course, reference to the previousblock on the blockchain.
+
+00:03:50.230 --> 00:03:54.830
+So, what we're going to do is remove everything that we don't need.
+
+00:03:54.830 --> 00:03:59.950
+So, we don't need anything that's referencing to the consensus algorithm,
+
+00:03:59.950 --> 00:04:02.120
+we're just going to delete those.
+
+00:04:02.120 --> 00:04:04.409
+The body of our block,
+
+00:04:04.409 --> 00:04:08.140
+we don't need any data within it because all we care about is constructing
+
+00:04:08.140 --> 00:04:12.990
+your own private chain block data model.
+
+00:04:12.990 --> 00:04:16.270
+So, right here, we're just going to remove all this data with
+
+00:04:16.270 --> 00:04:20.215
+inside the transaction body also known as a block body.
+
+00:04:20.215 --> 00:04:25.220
+Matter of fact, let's just rename tx with body.
+
+00:04:25.220 --> 00:04:27.355
+All right, perfect.
+
+00:04:27.355 --> 00:04:31.450
+We're going to remove merkleroot version.
+
+00:04:31.770 --> 00:04:35.860
+No need for weight, size, or confirmation,
+
+00:04:35.860 --> 00:04:42.295
+and let's remove the data from the hash.
+
+00:04:42.295 --> 00:04:46.240
+Let's reset the block height to zero;
+
+00:04:46.240 --> 00:04:52.535
+the time, zero; and previousblockhash, nothing. All right.
+
+00:04:52.535 --> 00:04:55.240
+That pretty much concludes what we're going to need to start
+
+00:04:55.240 --> 00:04:58.265
+constructing our own private blockchain.
+
+00:04:58.265 --> 00:05:00.625
+Now that we defined our data model,
+
+00:05:00.625 --> 00:05:04.270
+let's go ahead and add that to our notes.
+
+00:05:04.400 --> 00:05:07.565
+Block and data model.
+
+00:05:07.565 --> 00:05:10.370
+Perfect. Well, that concludes our block data model.
+
+00:05:10.370 --> 00:05:12.205
+Next up, let's go ahead and create
+
+00:05:12.205 --> 00:05:17.010
+our own block constructor to support building out our private blockchain.
+

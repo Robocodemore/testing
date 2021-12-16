@@ -1,0 +1,124 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.090 --> 00:00:02.904
+Now, that we have our block class,
+
+00:00:02.904 --> 00:00:06.359
+we now need to construct our blockchain to store blocks.
+
+00:00:06.360 --> 00:00:08.399
+Before we make further modifications,
+
+00:00:08.398 --> 00:00:11.329
+let's go ahead and make sure to add comments to our existing code.
+
+00:00:11.330 --> 00:00:14.640
+I'm going to go ahead and paste the code block N. All right.
+
+00:00:14.640 --> 00:00:18.429
+So, now we have our block class set to class with the constructor for the block.
+
+00:00:18.429 --> 00:00:20.469
+We can proceed forward.
+
+00:00:20.469 --> 00:00:25.729
+Let's add a new blockchain class called Blockchain.
+
+00:00:32.270 --> 00:00:34.500
+Just like our block class,
+
+00:00:34.500 --> 00:00:40.950
+we can configure a constructor, constructor.
+
+00:00:44.189 --> 00:00:47.239
+Perfect. Now, that we have our constructor,
+
+00:00:47.240 --> 00:00:52.844
+let's go ahead and utilize an array to store our blockchain.
+
+00:00:52.844 --> 00:00:55.500
+Let's call this array chain.
+
+00:00:55.509 --> 00:00:59.899
+Next, let's go ahead and add our comment banner.
+
+00:00:59.899 --> 00:01:02.799
+Perfect. So, at this point,
+
+00:01:02.799 --> 00:01:11.469
+we have a blockchain class with the constructor that stores data within an array.
+
+00:01:11.469 --> 00:01:16.179
+Let's go ahead and new functionality to add a block to the array.
+
+00:01:16.180 --> 00:01:19.810
+Let's go ahead and call the function addBlock.
+
+00:01:19.810 --> 00:01:27.329
+Within the function, let's go ahead and call the variable a newBlock.
+
+00:01:28.329 --> 00:01:30.649
+Within our function body,
+
+00:01:30.650 --> 00:01:35.945
+let's go ahead and add the new block to our chain.
+
+00:01:35.944 --> 00:01:44.399
+We're going to say this chain.push newBlock.
+
+00:01:46.310 --> 00:01:49.885
+Perfect. Let's go ahead and test within our terminal,
+
+00:01:49.885 --> 00:01:52.620
+utilizing a Node environment.
+
+00:01:52.620 --> 00:01:57.859
+Remember, before we went ahead and did this with the creation of our block class,
+
+00:01:57.859 --> 00:02:00.370
+let's do it again with blockchain.
+
+00:02:00.370 --> 00:02:06.625
+Also we have to do now is copy our Blockchain class,
+
+00:02:06.625 --> 00:02:09.215
+and we'll paste it right here within
+
+00:02:09.215 --> 00:02:15.674
+our Node environment and sure enough that's been added within our Node environment.
+
+00:02:15.674 --> 00:02:18.275
+Next, let's go ahead and test.
+
+00:02:18.275 --> 00:02:24.430
+Let's stand to aid our object and assign it to a Blockchain variable.
+
+00:02:27.520 --> 00:02:35.719
+Next, let's add a new block to our blockchain utilizing our addBlock method.
+
+00:02:37.340 --> 00:02:41.819
+We're just going to put in some test data,
+
+00:02:41.819 --> 00:02:46.454
+nothing big. All right.
+
+00:02:46.455 --> 00:02:51.700
+To view the data within it, all is what we have to do is view the blockchain array,
+
+00:02:51.699 --> 00:02:56.280
+and with that we can call blockchain.chain.
+
+00:02:56.280 --> 00:03:01.539
+To recap, we created a new Blockchain class with
+
+00:03:01.539 --> 00:03:06.789
+a constructor to store data within side the chain
+
+00:03:06.789 --> 00:03:12.099
+array with a new addBlock function that allows
+
+00:03:12.099 --> 00:03:18.159
+a new block to be pushed to the chain.
+

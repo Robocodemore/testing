@@ -1,0 +1,136 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.410 --> 00:00:05.280
+Now that we have our blockchain working where our blocks are being linked
+
+00:00:05.280 --> 00:00:09.484
+together with the previousBlock in regards to the BlockHash,
+
+00:00:09.484 --> 00:00:11.910
+now we need to look at adding
+
+00:00:11.910 --> 00:00:17.219
+additional functionality such as block height and the block timestamp.
+
+00:00:17.219 --> 00:00:19.619
+So, let's go ahead and implement that now.
+
+00:00:19.620 --> 00:00:21.769
+Within our AddBlock function,
+
+00:00:21.769 --> 00:00:24.035
+let's go ahead and add a new line,
+
+00:00:24.035 --> 00:00:29.004
+and this time let's go ahead and call our newBlock object,
+
+00:00:29.004 --> 00:00:34.030
+and we want to reference to the height.
+
+00:00:35.329 --> 00:00:40.015
+To get our block height, we're simply going to refer to our means of storage.
+
+00:00:40.015 --> 00:00:41.660
+In this case, it's chain.
+
+00:00:41.659 --> 00:00:44.464
+So, we're going to say this.chain,
+
+00:00:44.465 --> 00:00:48.620
+and we're going to reference to the length of that chain.
+
+00:00:48.829 --> 00:00:51.559
+Perfect. Now that we have the chain.length,
+
+00:00:51.560 --> 00:00:54.460
+let's go ahead and add a timestamp.
+
+00:00:54.460 --> 00:00:57.710
+Same thing, we need to refer to our newBlock.
+
+00:00:57.710 --> 00:01:02.130
+Now, we're going to go ahead and reference to our time variable.
+
+00:01:02.130 --> 00:01:05.760
+Now, to get the date, we're going to use a built-in function called Date.
+
+00:01:05.760 --> 00:01:10.419
+So, let's go ahead and create a new Date object,
+
+00:01:10.418 --> 00:01:13.084
+and we're going to want to get the current time,
+
+00:01:13.084 --> 00:01:17.009
+and we want to convert that to a string,
+
+00:01:17.780 --> 00:01:22.844
+and then next we want to slice that string and remove
+
+00:01:22.844 --> 00:01:27.325
+the last three characters from the string.
+
+00:01:27.325 --> 00:01:28.620
+That will allow us to have
+
+00:01:28.620 --> 00:01:33.120
+a compatible UTC timestamps that we can verify with external resources.
+
+00:01:33.120 --> 00:01:34.390
+Okay, perfect.
+
+00:01:34.390 --> 00:01:36.870
+Now, this is a great point to test our cone.
+
+00:01:36.870 --> 00:01:39.900
+We would like to go ahead and add a newBlock to the chain,
+
+00:01:39.900 --> 00:01:42.915
+we want to see the block height increment,
+
+00:01:42.915 --> 00:01:46.455
+and then we would like to see the timestamp be unique.
+
+00:01:46.454 --> 00:01:51.390
+To do this, we need an external node environment and re-enter the node environment,
+
+00:01:51.390 --> 00:01:55.750
+pasting in our newly modified cone,.exit.
+
+00:02:20.539 --> 00:02:22.759
+Wonderful results.
+
+00:02:22.759 --> 00:02:26.274
+Now, our blockchain is configured to add the block height,
+
+00:02:26.275 --> 00:02:29.375
+and this case, block height is zero for our Genesis block,
+
+00:02:29.375 --> 00:02:32.270
+we have a unique timestamp for that Genesis block.
+
+00:02:32.270 --> 00:02:35.344
+Next, we have the block height,
+
+00:02:35.344 --> 00:02:38.500
+one, incrementing up with a unique timestamp,
+
+00:02:38.500 --> 00:02:42.819
+and we can see that that is continuing to move forward;
+
+00:02:42.819 --> 00:02:45.400
+that's the exact results we're looking for.
+
+00:02:45.400 --> 00:02:49.080
+To recap, we modified our AddBlock function
+
+00:02:49.080 --> 00:02:53.025
+to include block height within our newBlock object.
+
+00:02:53.025 --> 00:02:56.390
+In addition, we configured our newBlock object to
+
+00:02:56.389 --> 00:03:02.000
+include a timestamp that's following the UTC format.
+

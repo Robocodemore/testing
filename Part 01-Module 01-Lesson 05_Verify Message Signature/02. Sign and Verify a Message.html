@@ -1,0 +1,238 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sign and Verify a Message</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Verify Message Signature</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. What Will You Learn.html">01. What Will You Learn?</a>
+    </li>
+    <li class="">
+      <a href="02. Sign and Verify a Message.html">02. Sign and Verify a Message</a>
+    </li>
+    <li class="">
+      <a href="03. Step 1 Generate Private Public Keys using a Wallet Address.html">03. Step 1: Generate Private Public Keys using a Wallet Address</a>
+    </li>
+    <li class="">
+      <a href="04. Step 2 Sign a Message.html">04. Step 2: Sign a Message</a>
+    </li>
+    <li class="">
+      <a href="05. Step 3 Verify a Message Signature.html">05. Step 3: Verify a Message Signature</a>
+    </li>
+    <li class="">
+      <a href="06. Quiz Verify Message Signature.html">06. Quiz: Verify Message Signature</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">02. Sign and Verify a Message</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="sign-and-verify">Sign and Verify</h1>
+<hr />
+<p><em>Note: In this section, we will use the phrase "transaction" and "message" interchangeably. A "message" is often part of a "transaction" or can be a form of a simple "transaction" of communication.</em></p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="-why-sign-and-verify-messages">## Why sign and verify messages?</h2>
+<p>A Bitcoin digital signature and its verification is one of the main key secrets behind the Bitcoin protocol.</p>
+<p>We have already discussed the importance of <a href="https://classroom.udacity.com/nanodegrees/nd1309/parts/53eb3bf0-8a05-45ff-b11d-8b993fb8f10b/modules/0337fa81-d6b9-40f0-99aa-891db36c8bbc/lessons/78c201d3-b69b-47b8-b992-821a1162d32f/concepts/d701db88-2e37-41a2-8876-17f209fab2be?contentVersion=1.0.0&contentLocale=en-us" target="_blank">"Signing a Transaction"</a>.</p>
+<p>This process allows non-repudiation which means the person who sent the message had to be in possession of the private key in order to send the message, and as a result, anyone on the network can use this information to verify the transaction. </p>
+<h2 id="but-how-does-it-work">But how does it work?</h2>
+<ul>
+<li>The sender generates a private key and a public key, using a wallet address. </li>
+<li>The sender then signs the message with the signature, and sends their public key, the signature and the message to the network.</li>
+<li>The receiving node then checks using the verification algorithm that the message has been signed by the sender, which can only be done by the holder of the private key to the public key that is sent.</li>
+<li>Signing a transaction helps to <em>prove ownership of these transactions</em> and to <em>prove that transaction and blockchain identity were not tampered with.</em></li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h2 id="-3-step-process">## 3 Step Process</h2>
+<p>At a high-level, there are 3 steps in the process:</p>
+<table>
+<thead>
+<tr>
+<th id="**step_1**"><strong>Step 1</strong></th>
+<th id="[generate_a_private_key_and_a_public_key,_using_a_wallet_address](https://classroom.udacity.com/nanodegrees/nd1309/parts/53eb3bf0-8a05-45ff-b11d-8b993fb8f10b/modules/0337fa81-d6b9-40f0-99aa-891db36c8bbc/lessons/897f4768-6cff-4642-afe3-ed9150bc9f07/concepts/1582929a-6be2-4aab-92e1-05076faead86)"><a href="https://classroom.udacity.com/nanodegrees/nd1309/parts/53eb3bf0-8a05-45ff-b11d-8b993fb8f10b/modules/0337fa81-d6b9-40f0-99aa-891db36c8bbc/lessons/897f4768-6cff-4642-afe3-ed9150bc9f07/concepts/1582929a-6be2-4aab-92e1-05076faead86" target="_blank">Generate a private key and a public key, using a wallet address</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Step 2</strong></td>
+<td><a href="https://classroom.udacity.com/nanodegrees/nd1309/parts/53eb3bf0-8a05-45ff-b11d-8b993fb8f10b/modules/0337fa81-d6b9-40f0-99aa-891db36c8bbc/lessons/897f4768-6cff-4642-afe3-ed9150bc9f07/concepts/fab0d6e2-af79-440b-854a-565facb5d268" target="_blank">Sign a message using the wallet address</a></td>
+</tr>
+<tr>
+<td><strong>Step 3</strong></td>
+<td><a href="https://classroom.udacity.com/nanodegrees/nd1309/parts/53eb3bf0-8a05-45ff-b11d-8b993fb8f10b/modules/0337fa81-d6b9-40f0-99aa-891db36c8bbc/lessons/897f4768-6cff-4642-afe3-ed9150bc9f07/concepts/52ce678f-6d51-4dfd-b3d7-76f765fdc176" target="_blank">Verify the message using the address and the signature</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/screen-shot-2018-08-25-at-2.55.40-pm.png" alt="Diagram showing the 3 Steps" class="img img-fluid">
+    <figcaption class="figure-caption">
+      <p>Diagram showing the 3 Steps</p>
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div>
+          </div>
+
+          <div class="col-12">
+            <p class="text-right">
+              <a href="03. Step 1 Generate Private Public Keys using a Wallet Address.html" class="btn btn-outline-primary mt-4" role="button">Next Concept</a>
+            </p>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.4.4</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('02. Sign and Verify a Message')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+</body>
+
+</html>

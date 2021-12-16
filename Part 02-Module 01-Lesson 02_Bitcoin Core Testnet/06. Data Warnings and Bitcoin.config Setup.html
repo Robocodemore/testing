@@ -1,0 +1,292 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Data Warnings and Bitcoin.config Setup</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Bitcoin Core Testnet</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. Lesson Introduction.html">01. Lesson Introduction</a>
+    </li>
+    <li class="">
+      <a href="02. Bitcoin Core Overview.html">02. Bitcoin Core Overview</a>
+    </li>
+    <li class="">
+      <a href="03. Bitcoin Core Networks.html">03. Bitcoin Core Networks</a>
+    </li>
+    <li class="">
+      <a href="04. Mainnet vs Testnet.html">04. Mainnet vs Testnet</a>
+    </li>
+    <li class="">
+      <a href="05. Testnet vs Regnet.html">05. Testnet vs Regnet</a>
+    </li>
+    <li class="">
+      <a href="06. Data Warnings and Bitcoin.config Setup.html">06. Data Warnings and Bitcoin.config Setup</a>
+    </li>
+    <li class="">
+      <a href="07. Get Started with Bitcoin Core.html">07. Get Started with Bitcoin Core</a>
+    </li>
+    <li class="">
+      <a href="08. Bitcoin Core Wallet.html">08. Bitcoin Core Wallet</a>
+    </li>
+    <li class="">
+      <a href="09. Networks Demonstration.html">09. Networks Demonstration</a>
+    </li>
+    <li class="">
+      <a href="10. Get Testnet Coins.html">10. Get Testnet Coins</a>
+    </li>
+    <li class="">
+      <a href="11. Testnet Wallet Transactions.html">11. Testnet Wallet Transactions</a>
+    </li>
+    <li class="">
+      <a href="12. Block Explorer.html">12. Block Explorer</a>
+    </li>
+    <li class="">
+      <a href="13. Lesson Recap.html">13. Lesson Recap</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">06. Data Warnings and Bitcoin.config Setup</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/bitcoincore1.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>At this point, we've talked a lot about the Bitcoin Core Software. Coming up, we'll be installing this software locally on our computers.</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>This is a pretty intensive software to have installed locally. There’s a few things to know before getting started.</p>
+<h1 id="requirements-and-warnings">Requirements and Warnings</h1>
+<p>To start, have a look at the the requirements and warnings about this software that are available on the bitcoin core website.</p>
+<p><a href="https://bitcoin.org/en/bitcoin-core/features/requirements" target="_blank">Requirements and Warnings</a></p>
+<h1 id="alternatives">Alternatives</h1>
+<p>We understand that this may not be a viable option for many people. Below we have provided alternatives that can help you get started even if you are unable to install Bitcoin Core.</p>
+<h2 id="workspaces">Workspaces</h2>
+<p>We have a Bitcoin Core Full node installed in the classroom that you can access using a command line interface. </p>
+<p>You can type commands directly into this console, and you’ll get the same values as if you had run it locally.</p>
+<p>Anytime you see something that looks like the image below in the classroom, that's a workspace!</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/screen-shot-2018-05-31-at-9.28.25-am.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>It's an interactive terminal environment you can use to run commands in. We’ll be going into these commands in the next lesson when we review the Bitcoin Core Debug Console.</p>
+<h2 id="switching-networks">Switching Networks</h2>
+<p>While the workspaces can help with running commands, they don’t give you access to the user interface of the wallet provided by Bitcoin Core. </p>
+<p>To get access to these you’ll need to get onto a network somehow. </p>
+<p>One way to make this more manageable is to run the software with certain modifications.</p>
+<p>One change is to set the default network to be the testnet or regnet.</p>
+<p>If you do this, rather than the software syncing to the mainnet, which can be up to 200GB or more, you’ll sync to the testnet which is approximately 15GB, or the regnet which is 0GB.</p>
+<p>If you choose this option, download the software as shown in the next section, then jump directly to Bitcoin Core Networks Demonstration to see how to switch to a different network.</p>
+<h2 id="pruning">Pruning</h2>
+<p>You can also use pruning to reduce the amount of space taken by the bitcoin blockchain. This does not make the blockchain sync faster, but reduces the amount of storage held on your local computer.</p>
+<p>You will do this using what’s known as a bitcoin.conf file in your bitcoin core directory. </p>
+<p>If you are using this method, jump to Bitcoin Core Networks Demonstration to see how this file is set up.</p>
+<p>As a quick summary here are the steps you’ll go through.</p>
+<ul>
+<li><strong>Step 1</strong>: create a bitcoin.conf file in your bitcoin installation directory.</li>
+<li><strong>Step 2</strong>: In this file, write prune=550.</li>
+</ul>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/screen-shot-2018-05-31-at-9.31.49-am.png" alt="" class="img img-fluid">
+    <figcaption class="figure-caption">
+      
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>For more information on reducing storage you can read more here: <a href="https://bitcoin.org/en/full-node#reduce-storage" target="_blank">Full Node: Reduce Storage</a></p>
+<h1 id="final-note">Final Note</h1>
+<p>We understand this is a significant hurdle to becoming a Blockchain Developer. </p>
+<p>We’ve chosen to follow through with Bitcoin as our starting point because it is an excellent way to get started with the core concepts that persist throughout all Blockchain technologies you will come across.</p>
+<p>Bitcoin was not only the first blockchain, it was the starting point from which the components, terminology, concepts for all other blockchains derived.</p>
+<p>We hope that you see the value in starting with this software, and will continue to do everything we can do make sure you can comfortably get started no matter what restrictions you may have to your local environment.</p>
+<p>Thank you, please reach out if you have any questions or concerns about this.</p>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+
+          <div class="col-12">
+            <p class="text-right">
+              <a href="07. Get Started with Bitcoin Core.html" class="btn btn-outline-primary mt-4" role="button">Next Concept</a>
+            </p>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.4.4</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('06. Data Warnings and Bitcoin.config Setup')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+</body>
+
+</html>
